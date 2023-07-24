@@ -6,3 +6,4 @@ function findPalindrome(num){
     let reversNum = +num.toString().split('').reverse().join('')
     return num === reversNum;
 }
+findPalindrome(121);
