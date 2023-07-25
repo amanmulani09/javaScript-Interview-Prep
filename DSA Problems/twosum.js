@@ -21,3 +21,23 @@ const twoSum = function name(nums,target) {
 }
 
 twoSum([3,2,4],6)
+
+
+// optimized Object using JS Object;
+
+
+const twoSum2 = function(nums,target){
+    let object = {};
+    for(let i = 0; i<nums.length; i++){
+        var n = nums[i];
+   
+        if(object[target-n] >=0){
+            return [object[target-n],i];
+        }else{
+            object[n] = i;
+        }
+    }
+   
+   };
+   
+   twoSum2([2,7,11,15],26)
