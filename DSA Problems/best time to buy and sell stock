@@ -28,3 +28,22 @@ const maxProfile = function(prices){
 
 maxProfile([7,1,5,3,6,4])
 maxProfile([7,6,4,3,1])
+
+
+// optimzed solution with greedy algorithm
+
+const maxProfitWithGreedyAlgorithm = function(prices){
+    let minStockPurchasePrice = prices[0] || 0;
+    let profit = 0;
+
+    for(let i =0; i<prices.length; i++){
+        if(prices[i] < minStockPurchasePrice){ // check whether any stock availble for minimun price that current one if yes then purchase it 
+            minStockPurchasePrice = prices[i] // puchase the minimum stock at the lowest price
+        }
+
+        profit = Math.max(profit,prices[i] - minStockPurchasePrice)
+    }
+    return profit;
+}
+
+maxProfitWithGreedyAlgorithm([7,1,5,3,6,4])
