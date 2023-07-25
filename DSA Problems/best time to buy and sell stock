@@ -1,0 +1,30 @@
+// Best time to Buy and sell Stocks
+
+// you are given an array prices where prices[i] is the price of a given stock 
+// on the ith day.
+
+// You cant to maximize your profit by choosing a single day to buy one stock 
+// and choosing a different day in the future to seel that stock
+// return the maximum profit, if you cannot achieve ny profit, return 0;
+
+// Input: prices = [7,1,5,3,6,4]; --------->>>>> output:5;
+// input : Prices  = [7,6,4,3,1]; --->>>>>>> output : 0;
+
+
+// Bruit force solutio
+
+const maxProfile = function(prices){
+
+    let globalProfit = 0;
+
+    for(let i =0;  i < prices.length - 1; i++){
+        for(let j = i + 1; j<prices.length; j++){
+            let currentProfit = prices[j] - prices[i];
+            if(currentProfit > globalProfit) globalProfit = currentProfit;
+        }
+    }
+    return globalProfit
+}
+
+maxProfile([7,1,5,3,6,4])
+maxProfile([7,6,4,3,1])
