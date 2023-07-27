@@ -9,7 +9,7 @@ const promise = new Promise((resolve,reject)=>{
 
 //initially the promise will be in pending state let's see 
 
-console.log(promise) // in the pending state
+// console.log(promise) // in the pending state
 
 // setTimeout(()=>{
 //     console.log(promise) // fulfilled result: Hello World!
@@ -21,4 +21,35 @@ console.log(promise) // in the pending state
 //1. .then() this function will only called after the promise resolved only
 
 
-    promise.then((data)=> console.log('received data after 5 seconds'))
+    // promise.then((data)=> console.log('received data after 5 seconds'))
+
+//theble the promise can be chained further
+
+// promise
+// .then((value)=> 'ABC '+ value)
+// .then((value)=>console.log(value))
+// .finally(()=> console.log('task Done'))
+
+// let's create a promise which will be reject after 5 second;
+
+
+const rejectedPromise = new Promise((resolve,reject)=>{
+
+    //promise will be rejected after 5 second;
+
+    setTimeout(()=>{
+        reject('Error 404')
+    },5000)
+})
+
+
+console.log('rejectedPromise',rejectedPromise);
+
+// rejected promise shows like an error 
+//then callback takes two argument first on fulfilled and second after rejected
+rejectedPromise.then(null,(error)=>{
+    console.log('Called from then callback',error)
+})
+
+// we can use the catch block to handle the error as well!
+rejectedPromise.catch((error)=> console.log('called from catch block',error));
