@@ -43,13 +43,28 @@ const rejectedPromise = new Promise((resolve,reject)=>{
 })
 
 
-console.log('rejectedPromise',rejectedPromise);
+// console.log('rejectedPromise',rejectedPromise);
 
 // rejected promise shows like an error 
 //then callback takes two argument first on fulfilled and second after rejected
 rejectedPromise.then(null,(error)=>{
-    console.log('Called from then callback',error)
+    // console.log('Called from then callback',error)
 })
 
 // we can use the catch block to handle the error as well!
-rejectedPromise.catch((error)=> console.log('called from catch block',error));
+// rejectedPromise.catch((error)=> console.log('called from catch block',error));
+
+
+// the catch block can be also extended further using the then block;
+
+rejectedPromise
+.catch((error)=> error)
+.then(err=> console.log('called from catch chain block',err));
+
+
+// finally can be attach for both block then and catch also
+
+
+rejectedPromise.then(null,(error)=>{
+    return error
+}).then((err)=> console.log('I am chained from then ',err))
