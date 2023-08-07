@@ -26,7 +26,6 @@ const infiniteSum = function(a){
 
 // one liner solution using es6 fat arrow functions
 
-
 const sumN = a => b=> b ? sumN(a+b) : a;
 
 sumN(10)(20)(30)(40)();
