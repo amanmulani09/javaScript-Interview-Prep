@@ -1,0 +1,25 @@
+
+// how it works with the simple two arguments
+
+const sum = function(a){
+    return (b)=>{
+        return a+b
+    }
+}
+
+// sum(10)(20);
+
+//infinite currying using the recursion
+
+
+const infiniteSum = function(a){
+
+    return function(b){
+        if(b){
+            return sum(a+b)
+        }
+        return a;
+    }
+};
+
+infiniteSum(1)(2)(3)(4)
