@@ -1,0 +1,18 @@
+//session storage??
+
+// session is a period when user starts an chrome tab and ends the period in between 
+
+//session storage does not send to the server unlike coockies
+
+// in cookies we can store 4000byte of data
+
+// in session storage we can store at least 5MB of data;
+
+// localStorage and session storage are the same the difference is it does not erraze automatically
+
+//localstrorage has the hightest memory capacity as compaired to session storage and cookies
+
+// the memory capacity depends on the what kind of device or the brower the user is using same at least 5 5MB
+
+// we can use localstrorage or sessionstorage to store the user data such as preference and selected or browsed cities products etc
+
