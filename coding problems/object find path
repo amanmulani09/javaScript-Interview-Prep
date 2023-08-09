@@ -1,0 +1,34 @@
+var obj = {
+    a: {
+        b: {
+            c: 12
+        }
+    }
+};
+
+
+Object.prototype.findPath = function(path){
+    if(!path) return [];
+
+    let props = path.split('.');
+    let obj = this;
+
+    let result = obj;
+
+    for(let key of props){
+        // console.log(key)
+        if(result.hasOwnProperty(key)){
+            result = result[key]
+        }else{
+            return;
+        }
+    }
+    return result;
+}
+
+obj.findPath('a.b.c')
+console.log(obj.findPath('a.b')); // {c: 12}
+console.log(obj.findPath('a.b.d')); // undefined
+// console.log(obj.findPath('a.c')); // undefined
+// console.log(obj.findPath('a.b.c.d')); // undefined
+// console.log(obj.findPath('a.b.c.d.e')); // undefined
