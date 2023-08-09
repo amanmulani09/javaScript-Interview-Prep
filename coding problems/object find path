@@ -7,28 +7,25 @@ var obj = {
 };
 
 
-Object.prototype.findPath = function(path){
-    if(!path) return [];
+Object.prototype.findThePath = function(path){
+    if(!path) return undefined;
 
-    let props = path.split('.');
-    let obj = this;
+    let props = path.split('.'); // convert the path into each property name array ['a','b',c] etc;
+    let obj = this; // assigning the object to a variable obj
+    let current = obj; // assigning the object to a variable current;
 
-    let result = obj;
-
-    for(let key of props){
-        // console.log(key)
-        if(result.hasOwnProperty(key)){
-            result = result[key]
-        }else{
-            return;
-        }
+    for(let key of props){ //iterating over the all props array
+       if(current.hasOwnProperty(key)){ // checking if the current object has the propery of the key by index 
+           current = current[key] // assigning the property to the current 
+       }else{
+           return; // return if not found the property 
+       }
     }
-    return result;
+    return current; // returning the current obj 
+
+    
 }
 
-obj.findPath('a.b.c')
-console.log(obj.findPath('a.b')); // {c: 12}
-console.log(obj.findPath('a.b.d')); // undefined
-// console.log(obj.findPath('a.c')); // undefined
-// console.log(obj.findPath('a.b.c.d')); // undefined
-// console.log(obj.findPath('a.b.c.d.e')); // undefined
+console.log(obj.findThePath('a.b.c')); // 12
+console.log(obj.findThePath('a.b')); // {c: 12}
+// console.log(obj.findThePath('a.b.d')); // undefined
