@@ -1,0 +1,17 @@
+
+
+let obj = {
+}
+
+
+
+// check whether an object is empty
+const isEmpty = (obj)=>{
+
+    for(let key in obj){
+        return false;
+    }
+    return true;
+}
+
+isEmpty(obj)
