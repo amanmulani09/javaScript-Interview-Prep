@@ -77,3 +77,69 @@ function printBoth(n){//it is a bad time complexity when in term of algorithms
 // O(1) => when the operations are constant for any input; 1+1+1+1+
 // O(n) => when the operation incrase constant with the respectily to the input 2+4+6+8+10 
 // O(n*2) O(n)squre => when the operations increased widely based on input and are not constant 2+ 4+ 8 + 16+ 32+ 64 EEEEEEUU
+
+
+//---------------------------------------
+
+
+// Space complexity
+
+// space complexity is amount of memory need an algorithm to return
+
+// in JavaScript primitives
+
+// Boolean, num, undefined, null => have constant time complexity
+
+//string, array, object => dynamic depends on the input
+
+
+// let's see some exapmples
+
+//O(1)
+const funnyNumber = (numArr)=> { // has the O(1) time complexity the output is constant and same size variable for every input
+
+    let sum =0;
+
+    for(let i =0; i<numArr.length; i++){
+        sum+=numArr[i]
+    }
+    return sum;
+}
+
+
+// funnyNumber([1,2,3,4])
+
+
+// O(n) => changing respectively to the input;
+
+
+const funnyArry = (num)=>{ // O(n) space complexity => increasing in constant in a limit
+    let arr = [];
+    for(let i =1; i<=num; i++){
+        arr.push(i*69)
+    }
+
+    return arr;
+}
+
+// funnyArry(9)
+
+
+//O(n2)square time complexity
+
+
+const createMatrix = function(n){ // size or algorithm and output increased exponotially
+let matrix =[];
+
+    for(let i=0; i<n; i++){
+        matrix[i] = [];
+
+        for(let j =0; j<n; j++){
+            matrix[i][j] = i+j
+        }
+    }
+    return matrix;
+    
+}
+
+createMatrix(5)
