@@ -1,0 +1,43 @@
+
+//bruite force solutin using sort();
+const num = [1,52,32,12,42,30,12,52];
+
+const secondLargest = function(array){
+    if(!array || array.length === 0) return -1;
+    let uniqueArrray = Array.from(new Set(array));
+           uniqueArrray.sort((a,b)=> b-a);
+    if(array.length>=2){
+        return uniqueArrray[1]
+    }else{
+        return -1;
+    }
+}
+
+secondLargest(num)
+
+// O(logn) time complexity
+
+
+// optimized WebAssembly
+
+const num2 = [-1,1,52,32,12,42,30,12,52];
+
+const secondLargestOptimized = function(array){
+    let largest = 0;
+    let secondLargest = 0;
+
+    for(let i =0; i<array.length; i++){
+        if(array[i] > largest){
+            secondLargest = largest;
+            largest = array[i]
+        }else if(array[i] !== largest && array[i] > secondLargest){
+            secondLargest = array[i]
+        }
+    }
+    return secondLargest;
+}
+
+secondLargestOptimized(num2)
+
+// O(n) time complexity
+// O(1) space complexity
