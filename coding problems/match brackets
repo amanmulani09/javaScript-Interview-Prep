@@ -1,0 +1,26 @@
+let input = '(hello)world(js)(is)(awesome)';
+let output = 1;
+
+let input2 = '(hello)(react)(bae';
+let output2= 0;
+
+
+const isMatchingBracet = function(str){
+    if(!str || typeof str !== 'string') return 0;
+
+    let strArr = str.split('');
+    let openingBracket = 0;
+    let closingBracket = 0;
+
+    for(let char of strArr){
+
+        if(char === '('){
+            openingBracket++
+        }else if(char === ')'){
+            closingBracket++
+        }
+    }
+   return openingBracket === closingBracket ? 1 : 0;
+}
+
+isMatchingBracet("BracketMatcher(coder)(byte))")
