@@ -11,4 +11,4 @@ const getinBetweenX = (str)=>{
     
 }
 
-console.log(getinBetweenX('XhamsterX'));
+console.log(getinBetweenX('PsudedoP'));
